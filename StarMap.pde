@@ -4,7 +4,6 @@
   C15423602 Sylvia Siu Wei Wan
 */
 
-
 void setup()
 {
   size(800, 800);
@@ -12,6 +11,12 @@ void setup()
   
   stroke(#A92FCB);
   noSmooth();
+  
+  for(int i=0; i<Star; i++)
+  {
+    Star s = Star.get(i);
+    println(s);
+  }//end for
   
   //Call methods
   loadData();
@@ -32,7 +37,7 @@ void loadData()
 {
   data.clear();
   
-  Table t = loadTable("stars.csv");
+  Table t = loadTable("stars.csv", "header");
   for(int i = 0 ; i < t.getRowCount(); i++)
   {
     TableRow row = t.getRow(i);
@@ -40,7 +45,7 @@ void loadData()
     data.add(stars);
   }
   
-}
+}//end loadData()
 
 void printStars()
 {
@@ -48,7 +53,7 @@ void printStars()
   {
     println(s);
   }
-}
+}//end printStars()
 
 void draw()
 {
@@ -57,9 +62,10 @@ void draw()
   {
     for(int j=0; j<heigth; j++)
     {
-      line(i, j, i+50, j);
-      line(i, j, i, j+50);
-      line(i+50, j, i+50, j+50);
-      line(i, j+50, i+50, j+50);
+      line(i, j, i+5, j);
+      line(i, j, i, j+5);
+      line(i+5, j, i+5, j+5);
+      line(i, j+5, i+5, j+5);
     }
-}
+  }
+}//end draw()
